@@ -1,0 +1,155 @@
+$purple: #8889c3
+$volf: #908f9f
+$tetriary: #a78899
+$eroro: #ff5449
+$neutural: #929093
+$dark-green: #446f47
+$yelow: #f4f4db
+*
+    border-radius: 5px
+input
+    border: none
+a
+    display: block
+.container_flex
+    display: flex
+    align-items: center
+    justify-content: space-between
+body
+    background: $yelow
+.test
+    height: 1000px !important
+.container
+    max-width: 1200px
+    overflow: hidden
+    margin: 0 auto
+
+    .task
+        padding: 11px
+        margin-top: 125px
+        display: flex
+        margin-bottom: 25px
+        
+        .task_item
+            border-radius: 5px
+            width: 300px
+            height: 50px
+            background: $tetriary
+            padding-left: 11px
+            margin-right: 20px
+            color: $yelow
+            &::placeholder
+                color: #f4f4db60
+
+        .task_linck
+            border-radius: 5px
+            width: 50px
+            height: 50px
+            border-radius: 100%
+            background: $dark-green
+            font-weight: 600
+            font-size: 12px
+            text-align: center
+            color: $yelow
+            outline: 1px solid $purple
+            outline-offset: 3px
+            transition: all 0.5s
+            &:hover 
+                background:$purple
+                outline: 1px solid $dark-green
+                
+.todo_list
+    display: flex
+    justify-content: space-between
+    gap: 100px
+    .col
+        width: 100%
+
+
+    .todo_item
+        margin-bottom: 40px
+        display: none
+        border-radius: 5px
+        width: 100%
+        align-self: flex-start
+        height: fit-content
+        background: $volf
+        padding: 11px
+        transition: all 1s
+        .todo_title
+            font-weight: 600
+            font-size: 20px
+            color: $yelow
+        .todo_open
+            position: relative
+        .plus_block
+            transition: all 0.5s
+            border-radius: 0px
+            width: 20px
+            height: 7px
+            background: $dark-green
+            &:last-child
+                position: absolute
+                top:-100%
+                left:32%
+                width: 7px
+                height: 20px
+
+.closed
+    height: 0 !important
+    transition: height 0.5s
+.todo_body
+    margin-top: 50px
+    height: fit-content
+    transition: height 0.5s
+    overflow: hidden
+    .todo_texteria_inner
+        background: $yelow
+        width: 100%
+        height: 100px
+        padding: 7px
+        gap: 20px
+        align-items: flex-start 
+        .todo_texteria
+            padding-top: 5px
+            padding-left: 9px
+            color: $yelow
+            background: $volf
+            width: 100%
+            height: 100%
+            resize: none
+            &::placeholder
+                color: #f4f4db60
+        .todo_texteria_btn
+            width: 15%
+            display: flex
+            align-items: center
+            justify-content: center            
+            height: 26px
+            background: $purple
+            color: $yelow
+            font-size: 12px
+    .todo_task_txt
+        margin-top: 5px
+        min-height: 50px
+        width: 100%
+        height: max-content
+        background: $yelow
+        .todo_title
+            color: #000000 
+
+.minus_block
+    transform: rotate(0deg)
+.minus_block_active
+    transform: rotate(90deg) !important
+
+
+        
+
+        
+
+
+
+
+    
+
