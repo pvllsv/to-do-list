@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         title.value = ''; 
     }
     function OpenTask(bodyTassk){
-        console.log(bodyTassk.classList.contains('closed'))
+        let h = bodyTassk.scrollHeight,
+                minus = bodyTassk.parentElement.querySelector('.minus_block');
 
         if(bodyTassk.classList.contains('closed')){
             // 1.закрываем все задачи перед открытием
@@ -35,29 +36,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 i.classList.remove('minus_block_active');
             });
             //3. получаем высоту тела задачи
-            let h = bodyTassk.scrollHeight,
-                minus = bodyTassk.parentElement.querySelector('.minus_block');
+            
             // 4.сворачиваем иконку плюса
             minus.classList.toggle('minus_block_active');
             //5. разворачиваем элемент
             bodyTassk.style.height = `${h}px`;
             bodyTassk.classList.remove('closed');  
-
-            // bodyTassk.removeAttribute('style');
-    
+            // удаляем фиксированную высоту для растяжения блока под контент
+            setTimeout(()=>{ bodyTassk.removeAttribute('style');}, 2000)
         }else {
             // если задача открыта просто закрываем ее
+            // обновляем высоту для плавного закрытия
+            bodyTassk.style.height = `${h}px`;
+
+
             bodyTassk.classList.add('closed');
             document.querySelectorAll('.minus_block').forEach(i=>{
                 i.classList.remove('minus_block_active');
             });
+            
         }
-        setTimeout(()=>{ bodyTassk.removeAttribute('style');
-        }, 1000)
-        // bodyTassk.removeAttribute('style');
-
-
-
 
 
     }
@@ -94,8 +92,7 @@ todo_list.addEventListener('click', function(e){
             title = e.target.parentElement.querySelector('.todo_texteria'),
             parrent = e.target.parentElement.parentElement.querySelector('.todo_task_txt');
 
-        AddTask(e, tasck, title, parrent)
-
+        AddTask(e, tasck, title, parrent);
 
 
     }
