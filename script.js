@@ -96,12 +96,40 @@ todo_list.addEventListener('click', function(e){
 
 
     }
+    if(e.target.closest('.task_linck')){
+        e.preventDefault();
+        const tasck = e.target.parentElement.parentElement.querySelector('.sub_task_item'),
+            title = e.target.parentElement.parentElement.querySelector('.task_item'),
+            parrent = e.target.parentElement.parentElement.querySelector('.sub_tack_list');
+
+            console.log(tasck);
+            console.log(title);
+        
+        AddTask(e, tasck, title, parrent);
+
+    }
 
 
     
 
 
 })
+
+todo_list.addEventListener('keydown', function(e){
+    if(e.target.closest('.task_item') && e.key === 'Enter'){
+        e.preventDefault();
+        const tasck = e.target.parentElement.parentElement.querySelector('.sub_task_item'),
+            title = e.target.parentElement.parentElement.querySelector('.task_item'),
+            parrent = e.target.parentElement.parentElement.querySelector('.sub_tack_list');
+
+            console.log(tasck);
+            console.log(title);
+        
+        AddTask(e, tasck, title, parrent);
+
+    }
+
+});
 
 
 
