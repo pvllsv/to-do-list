@@ -22,13 +22,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         title.value = ''; 
     }
-    function OpenTask(bodyTassk){
+    function OpenTask(bodyTassk, classBody ){
         let h = bodyTassk.scrollHeight,
                 minus = bodyTassk.parentElement.querySelector('.minus_block');
 
+
         if(bodyTassk.classList.contains('closed')){
             // 1.закрываем все задачи перед открытием
-            document.querySelectorAll('.todo_body').forEach(i=>{
+            document.querySelectorAll(classBody).forEach(i=>{
                 i.classList.add('closed');
             });
             //2. разварачиваем иконку плюса всем задачам
@@ -83,7 +84,14 @@ todo_list.addEventListener('click', function(e){
         e.preventDefault();
         
         const body = e.target.closest('.todo_open').parentElement.parentElement.querySelector('.todo_body');
-        OpenTask(body);
+        OpenTask(body, '.todo_body');
+
+    } 
+    if(e.target.closest('.todo_sub_open')){
+        e.preventDefault();
+        
+        const body = e.target.closest('.todo_sub_open').parentElement.parentElement.querySelector('.todo_sub_body');
+        OpenTask(body, '.todo_sub_body');
 
     } 
     if(e.target.closest('.todo_texteria_btn')){
